@@ -1,0 +1,59 @@
+{% for suggestion in suggestionfeed %}
+    <div class="col suggestionbox p-1 mt-3 ml-1">
+        <div class="row displaycont pl-1">
+            <div class="col-9 pl-0">
+                {% for author in authors %}
+                    {% if author.id == suggestion.author_id%}
+                        <p class="font-weight-bold"><a href="/userprofile/{{author.alias}}" method="GET"><u>{{author.alias}}</u></a> says:</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-3 pr-1 text-right mt-n1">
+                {% if session['loggedin_user']['user_id'] == suggestion.author_id %}   
+                    <a href="/edit/{{suggestion.id}}" method="GET">
+                        <img border="0" alt="edit" title="edit" src="static/img/edit.png" width="20" height="20">
+                    </a>
+                    <form action="/delete" method="post" class="ml-2 delform">
+                        <input type="hidden" name="suggestion_id" value="{{suggestion.id}}">
+                        <button type="submit" title="delete" class="deletebtn"></button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row displaycont pl-2">
+                <p><em>{{suggestion.suggestion}}</em></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 pl-3">
+            {% for like in likes %}
+                {% if like[0] == suggestion.id %}
+                    {% if like[1] < 2 %}
+                        {% set px2 = 'person' %}
+                        {% set px = px2 %}
+                    {% else %}
+                        {% set pxM2 = 'people' %}
+                        {% set px = pxM2 %}
+                    {% endif %}
+                    <h6 class="text-primary m-0 pl-3"><em>
+                            <a href="/suggestiondetails/{{suggestion.id}}" method="GET"><u>{{like[1]}} {{px}}
+                            </u></a> like this.
+                    </em></h6>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-6 text-right p-0">
+            <div class="btn-group" role="group">
+                {% for eachsuggestion in not_liked %}
+                    {% if eachsuggestion == suggestion.id %}
+                        <form action="/like" method="post" class="mr-5 ml-2">
+                            <input type="hidden" name="suggestion_id" value="{{suggestion.id}}">
+                            <input type="hidden" name="user_id" value="{{session['loggedin_user']['user_id']}}">
+                            <button type="submit" class="btn btn-link m-0 p-0"><u><em>like it</em></u></button>
+                        </form>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}

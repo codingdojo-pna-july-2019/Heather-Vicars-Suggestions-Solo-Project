@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='style.css')}}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='suggestions.js') }}"></script>
+    <title>Edit</title>
+</head>
+<body class="bk-img2">
+    <div class="container-fluid">
+        <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="#"><img src="static/img/brand.jpg" width="30" height="30" alt=""></a>
+            <form action="/suggestions" class="form-inline">
+                <button class="btn btn-primary" type="submit">Back to Home</button>
+            </form>
+            <a class="btn btn-primary" href="/logout" method="get">Logout</a>
+        </nav> 
+        <div class="row hgt">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="col-lg-4 col-md-6 mx-auto emsgs">
+                        <div class="emsgs2">
+                            {% for message in messages %}
+                                <p class="font-weight-bold font-italic text-center" id="secondaryColor">{{message}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>                       
+        <div class="row">
+            <div class="col-lg-5 col-md-6 mx-auto brdr" style="background-color: #23c3ff;">
+                <form action="/repostsuggestion" method="POST">
+                    <h3 class="text-center" id="secondaryColor">Edit your travel suggestion:</h3>
+                    <div class="form-group input-group">
+                        <input type="hidden" name="suggestion_id" value="{{edit_suggestion[0].id}}">
+                        <textarea class = "form-control" rows = "5" name="suggestion">{{edit_suggestion[0].suggestion}}</textarea>
+                    </div>                                                                                 
+                    <div class="form-group text-center">
+                        <input  type="submit" class="btn btn-primary" id="submit_btn" value="Post Suggestion">
+                    </div>                                                                                 
+                </form>  
+            </div>  
+        </div>
+    </div>
+    
+</body>
+</html>

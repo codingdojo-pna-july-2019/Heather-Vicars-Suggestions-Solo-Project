@@ -1,0 +1,37 @@
+{% if likes_list|length > 1%}
+    {% for like in likes_list%}
+        {% if loop.index == 1 %}
+            <h6 id="titleColor">People who liked this suggestion:</h6>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr><th>Alias</th><th>Name:</th></tr>
+                </thead>
+                <tbody>
+        {% elif loop.last %}
+                    <tr>
+                        <td>
+                            <a href="/userprofile/{{like.0}}" method="GET"><u>{{like.0}}</u></a>
+                        </td>
+                        <td>{{like.1}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <tr>
+                <td>
+                    <a href="/userprofile/{{like.0}}" method="GET"><u>{{like.0}}</u></a>
+                </td>
+                <td>{{like.1}}</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h6 class="titleColor font-italic">This suggestion has not yet received any likes.</h6>
+{% endif %}
+
+
+
+
+
+
+

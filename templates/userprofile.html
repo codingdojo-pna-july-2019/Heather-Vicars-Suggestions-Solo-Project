@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='style.css')}}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='suggestions.js') }}"></script>
+    <title>Suggestions</title>
+  </head>
+  <body class="bk-img2">
+        <div class="container-fluid">
+            <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+                <a href="#"><img src="static/img/brand.jpg" width="30" height="30" alt=""></a>
+                <form action="/suggestions" class="form-inline">
+                    <button class="btn btn-primary" type="submit">Back to Suggestions</button>
+                </form>
+                <a class="btn btn-primary" href="/logout" method="get">Logout</a>
+            </nav> 
+            <div class="row hgt"></div>                        
+            <div class="row">
+                <div class="col-lg-5 col-md-6 mx-auto brdr" style="background-color: #23c3ff;">
+                    <h4>Name: {{users_profile.fname}}</h4>
+                    <h4>Alias:  {{users_profile.alias}}</h4>
+                    <h4>Email: {{users_profile.email}}</h4>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-6 mx-auto brdr mt-3" style="background-color: #23c3ff;">
+                    <h5>Total number of posts: {{numposts}}</h5>
+                    <h5>Total number of likes: {{numlikes}}</h5>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

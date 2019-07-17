@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    background-image: url('img/travel.png');
+    background-size: 1240px;
+    background-repeat:no-repeat;
+    display: compact;
+    font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.bk-img2 {
+    margin: 0;
+    background-image: url('img/banner.jpg');
+    background-size: 1240px;
+    background-repeat:no-repeat;
+    display: compact;
+    font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.psnl {
+    max-width: 1240px !important;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.cntr {
+    margin: 0px 0px;
+}
+
+.starter-template{
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.hgt {
+    min-height: 200px;
+}
+
+.emsgs {
+    background-color: #23c3ff;
+    text-align: center;
+}
+
+.emsgs2 {
+    display: inline-block;
+    margin-top: 10px;
+    color: darkblue;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+
+.brdr {
+    border: 2px solid darkblue;
+    border-block-end-style: inset;
+}
+
+.desc {
+    margin-left: 110px;
+    margin-right: 20px !important;
+}
+
+.hello {
+    text-align: left;
+    color:  darkblue;
+    font-size: larger;
+
+}
+
+.suggestionbox {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.displaycont {
+    margin-left: 5px !important;
+    
+}
+
+.author {
+    max-width: 20px;
+}
+
+.deletebtn {
+    background-image: url('img/delete.png'); 
+    height: 20px;
+    width: 20px;
+}
+
+.editbtn {
+    background-image: url('img/edit.png'); 
+    height: 20px;
+    width: 20px;
+}
+
+.delform {
+    max-width:  20px;
+    display: inline !important;
+}
+
+.mt-n1 {
+    margin-top: -3rem !important;
+  }
+
+.sgtstyle {
+    background-color: white; 
+    min-width:inherit;
+    min-height: 150px;
+}
+
+#titleColor {
+    color: #304067;
+}
+
+#secondaryColor {
+    color:#33436e !important;
+}

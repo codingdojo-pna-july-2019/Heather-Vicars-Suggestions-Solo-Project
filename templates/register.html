@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='style.css')}}" />
+    
+    <title>Register</title>
+  </head>
+  <body class="bk-img2">
+        <div class="container-fluid">
+            <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="#"><img src="static/img/brand.jpg" width="30" height="30" alt=""></a>
+                <form action="/" class="form-inline">
+                    <button class="btn btn-primary" type="submit">Go Back</button>
+                </form>
+                <form action="/gotologin" class="form-inline">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </form>
+            </nav> 
+            <div class="row hgt">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="col-lg-4 col-md-6 mx-auto emsgs">
+                            <div class="emsgs2">
+                                {% for message in messages %}
+                                    <p class="font-weight-bold font-italic text-center" id="secondaryColor">{{message}}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>              
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mx-auto" style="background-color: #23c3ff">
+                    <form action="/register" method="POST">
+                        <h3 class="text-center" id="secondaryColor">Registration</h3>
+                        <div class="form-group input-group">
+                            <input name="fname" class="form-control" placeholder="Full name" type="text">
+                        </div>
+                        <div class="form-group input-group">
+                            <input name="alias" class="form-control" placeholder="Alias" type="text">
+                        </div>
+                        <div class="form-group input-group">
+                            <input name="email" class="form-control" placeholder="Email address" type="email">
+                        </div>
+                        <div>
+                            <small id="emailHelp" class="form-text" id="secondaryColor">*Password must have at least one lower case, one uppercase, one number, and one special character and be at least 8 characters.</small>
+                        </div>
+                        <div class="form-group input-group">
+                            <input name="password" class="form-control" placeholder="Create password" type="password">
+                        </div>
+                        <div class="form-group input-group">
+                            <input name="confirm_password" class="form-control" placeholder="Repeat password" type="password">
+                        </div> 
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary"> Create Account  </button>
+                        </div>      
+                        <div class="form-group text-center">
+                            <p class="font-italic text-center" id="secondaryColor">Have an account?</p>
+                            <a class="btn btn-primary btn-sm" href="/gotologin" method="get">Go To Log In</a>
+                        </div>                                                                               
+                    </form>  
+                </div>               
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
